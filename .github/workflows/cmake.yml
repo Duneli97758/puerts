@@ -1,0 +1,25 @@
+name: CMake
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Insatll MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+    - name: Install Cmake
+      run: |
+        Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+        wr -useb get.scoop.sh | iex
+        scoop install cmake
+    - name: Build
+      run: |
+        cd unity\native_src
+        ./make_win64.bat      
