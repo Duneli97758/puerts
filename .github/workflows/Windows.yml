@@ -1,6 +1,9 @@
 name: Windows
 
-on: [push]
+on: 
+  push:
+    paths: 
+      - unity\native_src\*
 
 jobs:
   build:
