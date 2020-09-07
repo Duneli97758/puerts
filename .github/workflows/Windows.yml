@@ -14,11 +14,9 @@ jobs:
 
     - name: Insatll MSVC
       uses: ilammy/msvc-dev-cmd@v1
-    - name: Install Cmake
-      run: |
-        Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-        iwr -useb get.scoop.sh | iex
-        scoop install cmake
+      env:
+        toolset: 14.XX
+        sdk: 10.0.10240.0
     - name: Build
       run: |
         cd unity\native_src
