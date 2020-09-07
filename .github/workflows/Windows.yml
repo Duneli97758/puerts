@@ -24,6 +24,6 @@ jobs:
         cmake --build build64 --config Release
     - name: Upload
       uses: actions/upload-artifact@v1
-      env:
+      with:
         path: ./unity/native_src/build64/Release/puerts.dll
         name: Puerts-Windows
