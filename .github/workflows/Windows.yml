@@ -1,4 +1,4 @@
-name: CMake
+name: Windows
 
 on: [push]
 
@@ -17,7 +17,7 @@ jobs:
     - name: Install Cmake
       run: |
         Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-        wr -useb get.scoop.sh | iex
+        iwr -useb get.scoop.sh | iex
         scoop install cmake
     - name: Build
       run: |
