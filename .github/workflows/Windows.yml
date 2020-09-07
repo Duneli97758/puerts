@@ -22,4 +22,8 @@ jobs:
         cmake -G "Visual Studio 16 2019" ..
         cd ..
         cmake --build build64 --config Release
-           
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      env:
+        path: ./unity/native_src/build64/Release/puerts.dll
+        name: Puerts-Windows
